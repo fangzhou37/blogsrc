@@ -1,0 +1,19 @@
+hexo c; 
+
+hexo g; 
+
+git add .;
+
+cp -r public/* ../gitIO/;
+
+git add .;
+
+time_stamp=$(date +%Y-%m-%d-%H-%M-%S)
+
+cd ../gitIO/
+
+git commit -m "deploy: $time_stamp"
+
+git push -u origin master
+
+cd -
