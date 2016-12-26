@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Ordinary World</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://fangzhou37.github.io/"/>
+  <updated>2016-12-26T21:26:03.000Z</updated>
+  <id>http://fangzhou37.github.io/</id>
+  
+  <author>
+    <name>Zhou Fang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>From monolithic to SOA - Uber&#39;s practice</title>
+    <link href="http://fangzhou37.github.io/2016/12/24/From-monolithic-to-SOA-Uber-s-practice/"/>
+    <id>http://fangzhou37.github.io/2016/12/24/From-monolithic-to-SOA-Uber-s-practice/</id>
+    <published>2016-12-25T05:05:13.000Z</published>
+    <updated>2016-12-26T21:26:03.000Z</updated>
+    
+    <summary type="html">
+    
+      Why and how Uber change its architecture from monolithic mode to SOA
+    
+    </summary>
+    
+      <category term="Architecture" scheme="http://fangzhou37.github.io/categories/Architecture/"/>
+    
+    
+      <category term="SOA" scheme="http://fangzhou37.github.io/tags/SOA/"/>
+    
+      <category term="Architecture" scheme="http://fangzhou37.github.io/tags/Architecture/"/>
+    
+      <category term="Uber" scheme="http://fangzhou37.github.io/tags/Uber/"/>
+    
+  </entry>
+  
+</feed>
