@@ -1,16 +1,20 @@
-hexo c; 
+hexo clean; 
 
 hexo g; 
 
-git add .;
+cd ../gitIO;
 
-cp -r public/* ../gitIO/;
+./cleanup;
+
+cd -;
+
+cp -a public/. ../gitIO/ ;
+
+cd -;
 
 git add .;
 
 time_stamp=$(date +%Y-%m-%d-%H-%M-%S)
-
-cd ../gitIO/
 
 git commit -m "deploy: $time_stamp"
 

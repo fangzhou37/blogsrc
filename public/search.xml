@@ -4,23 +4,40 @@
   
     
     <entry>
+      <title><![CDATA[Uber's geo query service]]></title>
+      <url>http://fangzhou37.github.io/2016/12/30/Uber-s-geo-query-service/</url>
+      <content type="html"><![CDATA[<h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>A geofence refers to a human-defined geographic area (or polygon in geometry terms) on the Earth&#x2019;s surface.<br><img src="/2016/12/30/Uber-s-geo-query-service/./geofence.png" width="200" height="200"></p>
+<h3 id="Language"><a href="#Language" class="headerlink" title="Language"></a>Language</h3><p>Node.js vs Go<br>Why choose Go:</p>
+<ul>
+<li>High-throughput and low-latency requirements</li>
+<li>CPU intensive workload<br>  Node is optimized for I/O intensive work. Not CPU intensive workload.</li>
+<li>Non-disruptive background loading<br>  Need to refresh geo data simultaneously, but Node.js is single threaded, background refreshing would affect query performance.</li>
+<li>High developer productivity. Easy to learn for developers.</li>
+<li>Super reliable</li>
+</ul>
+<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>Given a location specified as a lat/lon pair, how do we find which of our many tens of thousands of geofences this location falls into?<br>Approach 1: scan all polygons with ray casting algorithm -&gt; too slow.<br>Approach 2: R-tree or S2 -&gt; too complicated<br>Approach 3 (winner) : two level index: city level geo fence -&gt; inner city geo fence</p>
+<h3 id="System-design"><a href="#System-design" class="headerlink" title="System design"></a>System design</h3><p>To make the system more scalable, Uber choose stateless model where each machine independently has the knowledge of the entire geo space and data.<br>Deterministic polling schedule periodically polls the latest geo info from global geo fence store. This data is saved in main memory to serve queries and serialized to the local file system for fast bootstrap on service restarts.<br><img src="/2016/12/30/Uber-s-geo-query-service/./go-geofence-service-architecture.png"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[From monolithic to SOA - Uber's practice]]></title>
       <url>http://fangzhou37.github.io/2016/12/24/From-monolithic-to-SOA-Uber-s-practice/</url>
       <content type="html"><![CDATA[<h3 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h3><p>As core domain models grew and new features were introduced, our components became tightly coupled, and enforcing encapsulation made separation of concerns difficult. Continuous integration turned into a liability because deploying the codebase meant deploying everything at once.</p>
 <h3 id="New-Challenges"><a href="#New-Challenges" class="headerlink" title="New Challenges"></a>New Challenges</h3><ul>
 <li>Obviousness<br>Too many services would bring complexities on how to find and use them.</li>
-<li>Distributed API Safety<br>Dealing with unexpected argument, schema, calling…</li>
+<li>Distributed API Safety<br>Dealing with unexpected argument, schema, calling&#x2026;</li>
 <li>Resilience<br>How to deal with fault tolerance and latency?</li>
 </ul>
 <h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><ul>
-<li><p><strong>Thrift</strong><br>Thrift use strict contract binding to resolve ‘Safety’ concern.</p>
+<li><p><strong>Thrift</strong><br>Thrift use strict contract binding to resolve &#x2018;Safety&#x2019; concern.</p>
 </li>
 <li><p><strong>Hystrix</strong><br>Hystrix is a latency and fault tolerance library designed to isolate points of access to remote systems, services and 3rd party libraries, stop cascading failure and enable resilience in complex distributed systems where failure is inevitable.<br><a href="http://hot66hot.iteye.com/blog/2155036" target="_blank" rel="external">http://hot66hot.iteye.com/blog/2155036</a><br><a href="https://segmentfault.com/a/1190000005988895" target="_blank" rel="external">https://segmentfault.com/a/1190000005988895</a></p>
 </li>
 <li><p><strong>Finagle</strong><br>Finagle is an extensible RPC system for the JVM, used to construct high-concurrency servers. Finagle implements uniform client and server APIs for several protocols, and is designed for high performance and concurrency.<br>Core value: type Service[Req, Rep] = Req =&gt; Future[Rep]</p>
 </li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://eng.uber.com/soa/" target="_blank" rel="external">Uber’s article</a><br><a href="https://github.com/Netflix/Hystrix" target="_blank" rel="external">Hystrix</a><br><a href="https://twitter.github.io/finagle/" target="_blank" rel="external">Finagle</a></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://eng.uber.com/soa/" target="_blank" rel="external">Uber&#x2019;s article</a><br><a href="https://github.com/Netflix/Hystrix" target="_blank" rel="external">Hystrix</a><br><a href="https://twitter.github.io/finagle/" target="_blank" rel="external">Finagle</a></p>
 ]]></content>
     </entry>
     
