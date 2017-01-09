@@ -4,6 +4,20 @@
   
     
     <entry>
+      <title><![CDATA[How to motivate the team]]></title>
+      <url>http://fangzhou37.github.io/2017/01/09/How-to-motivate-the-team/</url>
+      <content type="html"><![CDATA[<ol>
+<li>Make EM(s) you best friend</li>
+<li>Explain why all the time<br> Before making the decision, prepare for questioning and think through it.<br> Defend the decisions you make.</li>
+<li>Include everyone</li>
+<li>Measure progress and raise awareness</li>
+<li>Go to war</li>
+<li>Celebrate success</li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Uber's geo query service]]></title>
       <url>http://fangzhou37.github.io/2016/12/30/Uber-s-geo-query-service/</url>
       <content type="html"><![CDATA[<h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>A geofence refers to a human-defined geographic area (or polygon in geometry terms) on the Earth&#x2019;s surface.<br><img src="/2016/12/30/Uber-s-geo-query-service/./geofence.png" width="200" height="200"></p>
