@@ -2,6 +2,12 @@ hexo clean;
 
 hexo g; 
 
+git add .;
+
+git commit -m "deploy source: $time_stamp"
+
+git push -u origin master
+
 cd ../gitIO;
 
 ./cleanup;
@@ -16,7 +22,7 @@ git add .;
 
 time_stamp=$(date +%Y-%m-%d-%H-%M-%S)
 
-git commit -m "deploy: $time_stamp"
+git commit -m "deploy generated site: $time_stamp"
 
 git push -u origin master
 
